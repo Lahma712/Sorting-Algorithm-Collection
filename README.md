@@ -6,7 +6,7 @@ Upon starting the program, it will ask you:
 
 <b> "Please enter a dataset:" </b>
 
-    Eter your dataset of integers (separate your integers with spaces)
+    Enter your dataset of integers (separate your integers with spaces)
 
 <b>"What Algorithm?: </b>
   
