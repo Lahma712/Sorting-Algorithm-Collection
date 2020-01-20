@@ -23,7 +23,7 @@ Upon starting the program, it will ask you:
     -Bogo/bogo/bogosort
 
     -All -> uses every algorithm on the dataset
-    -ninput -> lets you enter a new dataset
+    
     
   The output will display the sorted dataset aswell as how much time it took to sort it (in seconds).
   
