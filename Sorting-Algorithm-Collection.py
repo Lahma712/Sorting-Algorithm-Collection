@@ -1,4 +1,4 @@
-import time
+ mport time
 import random
 
 def MergeSort(List):
@@ -78,21 +78,21 @@ def InsertionSort(List):
 
 
 def BogoSort(List):
-    print("\nBogoSort:")
-    start = time.time()
-    while True:
-        x = 0
-        j = 0
-        while x < len(List) - 1:
-            if List[x] > List[x + 1]:
-                j += 1
-                List = random.sample(List, len(List))
-                break
-            x += 1
-        if j == 0:
-            end = time.time()
-            print("elapsed time: " + str(end - start) + " seconds")
-            return List
+	print("\nBogoSort:")
+	start = time.time()
+	def check(List):
+		for x in range(len(List)-1):
+			if List[x] > List[x+1]:
+				return False
+		return True
+	def bogo(List):
+		while not check(List):
+			List= random.sample(List, len(List))
+		return List
+	SortedList = bogo(List)
+	end = time.time()
+	print("elapsed time: " + str(end - start) + " seconds")
+	return SortedList
 
 
 def BubbleSort(List):
@@ -113,29 +113,68 @@ def BubbleSort(List):
             end = time.time()
             print("elapsed time: " + str(end - start) + " seconds")
             return List
+            
+def QuickSort(List):
+	print("\nQuickSort: ")
+	start = time.time()
+	def quicksort(List):
+		if len(List) == 1 or len(List) == 0:
+			return List
+		R = []
+		L = []
+		pivot = List[len(List)-1] #taking the last item of the list as a pivot
+		plist = [pivot]
+		for i in range(len(List)-1):
+			if List[i] >= pivot:
+				R.append(List[i])
+			else:
+				L.append(List[i])
+		SortedList = quicksort(L)+plist+quicksort(R)
+		return SortedList
+	SortedList = quicksort(List)
+	end = time.time()
+	print("elapsed time: "  + str(end - start) + " seconds")
+	return SortedList
+	
+	
+def BogobogoSort(List):
+	print("\nBogobogoSort")
+	start = time.time()
+	def check(List):
+		for x in range(len(List)-1):
+			if List[x] > List[x+1]:
+				return False
+		return True
+	def bogo(List):
+		while not check(List):
+			List= random.sample(List, len(List))
+		return List
 
+	for i in range(len(List)):
+		SortedList= bogo(List[:i+1])
+	end = time.time()
+	print("elapsed time: "  + str(end - start) + " seconds")
+	return SortedList
 
+listinput = input("\nEnter a dataset: ")
 while True:
-
-    List = [int(i) for i in input("Please enter a dataset: ").split()]
-    Input = input("What Algorithm?: ")
-    if Input in ["Merge", "merge", "mergesort"]:
+    List = [int(i) for i in listinput.split()]
+    Input = input("What Algorithm?: ").lower()
+    if Input in ["merge", "mergesort"]:
         print(MergeSort(List))
-    if Input in ["Select", "select", "selectionsort"]:
+    if Input in ["select", "selectionsort"]:
         print(SelectionSort(List))
-    if Input in ["Insert", "insert", "insertionsort"]:
+    if Input in ["insert", "insertionsort"]:
         print(InsertionSort(List))
-    if Input in ["Bogo", "bogo", "bogosort"]:
+    if Input in ["bogo", "bogosort"]:
         print(BogoSort(List))
-    if Input in ["Bubble", "bubble", "bubblesort"]:
+    if Input in ["bubble", "bubblesort"]:
         print(BubbleSort(List))
-    if Input == "All":
-        print(SelectionSort(List))
-        print(MergeSort(List))
-        print(InsertionSort(List))
-        print(BogoSort(List))
-        print(BubbleSort(List))
+    if Input in ["quick", "quicksort"]:
+    	print(QuickSort(List))
+    if Input in ["bogobogo", "bogobogosort"]:
+    	print(BogobogoSort(List))
+    if Input == "ninput":
+    	listinput = input("\nEnter a dataset:")
     if Input == "exit":
         quit()
-
-
