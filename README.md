@@ -24,8 +24,6 @@ Upon starting the program, it will ask you:
 
     -bogo/bogosort
     
-    -bogobogo/bogobogosort
-    
     -ninput -> new dataset
     
     
