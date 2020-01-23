@@ -135,26 +135,6 @@ def QuickSort(List):
 	end = time.time()
 	print("elapsed time: "  + str(end - start) + " seconds")
 	return SortedList
-	
-	
-def BogobogoSort(List):
-	print("\nBogobogoSort")
-	start = time.time()
-	def check(List):
-		for x in range(len(List)-1):
-			if List[x] > List[x+1]:
-				return False
-		return True
-	def bogo(List):
-		while not check(List):
-			List= random.sample(List, len(List))
-		return List
-
-	for i in range(len(List)):
-		SortedList= bogo(List[:i+1])
-	end = time.time()
-	print("elapsed time: "  + str(end - start) + " seconds")
-	return SortedList
 
 listinput = input("\nEnter a dataset: ")
 while True:
@@ -172,8 +152,6 @@ while True:
         print(BubbleSort(List))
     if Input in ["quick", "quicksort"]:
     	print(QuickSort(List))
-    if Input in ["bogobogo", "bogobogosort"]:
-    	print(BogobogoSort(List))
     if Input == "ninput":
     	listinput = input("\nEnter a dataset:")
     if Input == "exit":
