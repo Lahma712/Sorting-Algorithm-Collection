@@ -1,4 +1,4 @@
- mport time
+import time
 import random
 
 def MergeSort(List):
