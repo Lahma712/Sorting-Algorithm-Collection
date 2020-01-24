@@ -10,13 +10,18 @@ Upon starting the program, it will ask you:
 
 If you enter "1":
 
-    Enter length of dataset
+    Enter length of dataset:
 
   F.ex: 1000 (dataset consists of 1000 integers)
    
-    Enter boundaries('min int'-'max int') 
+    Enter boundaries('min int'-'max int'):
 
   F.ex: 0-200 (puts integers from 0 to 200 into the dataset)
+
+If you enter "2"
+    Enter your dataset:
+
+  Enter a list of integers (separate integers with spaces)
 
 <b>"What Algorithm?: </b>
   
