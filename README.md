@@ -19,6 +19,7 @@ Upon starting the program, it will ask you:
   F.ex: 0-200 (puts integers from 0 to 200 into the dataset)
 
 <b>If you enter "2"</b>
+
     Enter your dataset:
 
   Enter a list of integers (separate integers with spaces)
