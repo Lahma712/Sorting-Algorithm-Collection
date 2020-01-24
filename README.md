@@ -24,7 +24,9 @@ Upon starting the program, it will ask you:
 
     -bogo/bogosort
     
-    -ninput -> new dataset
+    -radix
+    
+    -ninput -> enter new dataset or generate one
     
     
   The output will display the sorted dataset aswell as how much time it took to sort it (in seconds).
