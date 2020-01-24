@@ -22,7 +22,8 @@ def MergeSort(List):
                 R.remove(R[0])
         return Sorted
 
-    def split(List):  # main function that splits the list into left and right branches and then calls the merge function on them
+    def split(
+            List):  # main function that splits the list into left and right branches and then calls the merge function on them
 
         if len(List) == 1 or len(List) == 0:
             return List
@@ -37,7 +38,6 @@ def MergeSort(List):
     end = time.time()
     print("elapsed time: " + str(end - start) + " seconds")
     return SortedList
-
 
 
 def SelectionSort(List):
@@ -62,12 +62,13 @@ def InsertionSort(List):
 
     def switch(x):  # x is the position of the current value
         List[x], List[x + 1] = List[x + 1], List[x]  # swaps two values (value followed by smaller value)
-        if List[x] < List[x - 1] and x != 0:  # follows the switched value to their final position via iteration (not recursion -> will reach max depth)
-            for i in range(x,-1,-1):
-                if List[i] > List[i-1]:
+        if List[x] < List[
+            x - 1] and x != 0:  # follows the switched value to their final position via iteration (not recursion -> will reach max depth)
+            for i in range(x, -1, -1):
+                if List[i] > List[i - 1]:
                     break
                 if List[i] < List[i - 1] and i != 0:
-                    List[i], List[i -1] = List[i - 1], List[i]
+                    List[i], List[i - 1] = List[i - 1], List[i]
 
     for x in range(len(List) - 1):
         if List[x] > List[x + 1]:
@@ -78,21 +79,24 @@ def InsertionSort(List):
 
 
 def BogoSort(List):
-	print("\nBogoSort:")
-	start = time.time()
-	def check(List):
-		for x in range(len(List)-1):
-			if List[x] > List[x+1]:
-				return False
-		return True
-	def bogo(List):
-		while not check(List):
-			List= random.sample(List, len(List))
-		return List
-	SortedList = bogo(List)
-	end = time.time()
-	print("elapsed time: " + str(end - start) + " seconds")
-	return SortedList
+    print("\nBogoSort:")
+    start = time.time()
+
+    def check(List):
+        for x in range(len(List) - 1):
+            if List[x] > List[x + 1]:
+                return False
+        return True
+
+    def bogo(List):
+        while not check(List):
+            List = random.sample(List, len(List))
+        return List
+
+    SortedList = bogo(List)
+    end = time.time()
+    print("elapsed time: " + str(end - start) + " seconds")
+    return SortedList
 
 
 def BubbleSort(List):
@@ -113,30 +117,74 @@ def BubbleSort(List):
             end = time.time()
             print("elapsed time: " + str(end - start) + " seconds")
             return List
-            
-def QuickSort(List):
-	print("\nQuickSort: ")
-	start = time.time()
-	def quicksort(List):
-		if len(List) == 1 or len(List) == 0:
-			return List
-		R = []
-		L = []
-		pivot = List[len(List)-1] #taking the last item of the list as a pivot
-		plist = [pivot]
-		for i in range(len(List)-1):
-			if List[i] >= pivot:
-				R.append(List[i])
-			else:
-				L.append(List[i])
-		SortedList = quicksort(L)+plist+quicksort(R)
-		return SortedList
-	SortedList = quicksort(List)
-	end = time.time()
-	print("elapsed time: "  + str(end - start) + " seconds")
-	return SortedList
 
-listinput = input("\nEnter a dataset: ")
+
+def QuickSort(List):
+    print("\nQuickSort: ")
+    start = time.time()
+
+    def quicksort(List):
+        if len(List) == 1 or len(List) == 0:
+            return List
+        R = []
+        L = []
+        pivot = List[len(List) - 1]  # taking the last item of the list as a pivot
+        plist = [pivot]
+        for i in range(len(List) - 1):
+            if List[i] >= pivot:
+                R.append(List[i])
+            else:
+                L.append(List[i])
+        SortedList = quicksort(L) + plist + quicksort(R)
+        return SortedList
+
+    SortedList = quicksort(List)
+    end = time.time()
+
+    print("elapsed time: " + str(end - start) + " seconds")
+    return SortedList
+
+def Radix(List):
+    print("\nRadix LSD (base 10): ")
+    start = time.time()
+    buckets = {}
+    for x in range(10):
+        bucket = {x: []}
+        buckets.update(bucket)
+
+    Max = int(List[0])
+    for x in range(len(List)):
+        if int(List[x]) > int(Max):
+            Max = List[x]
+
+    for x in range(len(List)):
+        List[x] = ("0" * (len(str(Max)) - len(List[x])) + List[x])
+    for z in range(len(str(Max)))[::-1]:
+
+        for j in range(len(List)):
+            buckets[eval(str(List[j])[z])].append(List[j])
+        List = []
+        for y in range(10):
+            List += buckets[y]
+            buckets[y] = []
+    end = time.time()
+    print("elapsed time: " + str(end - start) + " seconds")
+    return list(map(int, List))
+
+def Dataset():
+    Input = input("Generate dataset or enter your own? (1/2)")
+    if Input == "1":
+        Input =input("Enter your length of dataset: ")
+        listinput = ""
+        for i in range(int(Input)):
+            listinput += str(random.randint(0, 9999999999))
+            listinput += " "
+        print("Generated dataset: " + listinput)
+    else:
+        listinput = input("Enter your dataset: ")
+    return listinput
+
+listinput = Dataset()
 while True:
     List = [int(i) for i in listinput.split()]
     Input = input("What Algorithm?: ").lower()
@@ -151,8 +199,10 @@ while True:
     if Input in ["bubble", "bubblesort"]:
         print(BubbleSort(List))
     if Input in ["quick", "quicksort"]:
-    	print(QuickSort(List))
+        print(QuickSort(List))
+    if Input in ["radix"]:
+        print(Radix(list(map(str, List))))
     if Input == "ninput":
-    	listinput = input("\nEnter a dataset:")
+        listinput = Dataset()
     if Input == "exit":
         quit()
