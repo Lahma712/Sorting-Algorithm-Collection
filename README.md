@@ -5,10 +5,10 @@ includes : Bubblesort, Insertionsort, Selectionsort, Mergesort, Quicksort, Radix
 and Bogosort.
 Upon starting the program, it will ask you:
 
-<b> "Generate dataset or enter your own(1/2):" </b>
+    Generate dataset or enter your own(1/2):
 
 
-If you enter "1":
+<b>If you enter "1":</b>
 
     Enter length of dataset:
 
@@ -18,12 +18,12 @@ If you enter "1":
 
   F.ex: 0-200 (puts integers from 0 to 200 into the dataset)
 
-If you enter "2"
+<b>If you enter "2"</b>
     Enter your dataset:
 
   Enter a list of integers (separate integers with spaces)
 
-<b>"What Algorithm?: </b>
+    What Algorithm?:
   
   Chose one of the algorithms listed above with the following commands (upper/lower-case doesn't matter):
 
