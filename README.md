@@ -12,19 +12,19 @@ Upon starting the program, it will ask you:
   
   Chose one of the algorithms listed above with the following commands (upper/lower-case doesn't matter):
 
-    -bubble or 1
+    -Bubblesort -> bubble or 1
   
-    -insert or 2
+    -Selectionsort -> select or 2
   
-    -select or3
+    -Insertionsort -> insert or 3
   
-    -merge or 4
+    -Mergesort -> merge or 4
   
-    -quick or 5
+    -Quicksort -> quick or 5
 
-    -radix or 6 (only for positive integers atm)
+    -Radix LSD (Base 10) -> radix or 6 (only for positive integers atm)
     
-    -bogo or 7
+    -Bogosort -> bogo or 7
     
     -ninput -> enter new dataset or generate one
     
