@@ -150,7 +150,7 @@ def radix(List):
     return list(map(int, List))
 
 
-print("Commands:\n-Bubblesort -> bubble or 1\n-Selectionsort -> select or 2\n-Insertionsort -> insert or 3\n-Mergesort -> merge or 4\n-Quicksort -> quick or 5\n-Radix LSD (base 10) -> radix or 6\n-Bogosort -> bogo or 7\n\n-New dataset -> ninput")
+print("Commands:\n-Bubblesort -> bubble\n-Selectionsort -> select\n-Insertionsort -> insert\n-Mergesort -> merge\n-Quicksort -> quick\n-Radix LSD (base 10) -> radix\n-Bogosort -> bogo\n\n-New dataset -> ninput")
 
 def Dataset():
     Input = input("\nGenerate dataset or enter your own?(1/2): ")
