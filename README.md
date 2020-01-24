@@ -5,7 +5,7 @@ includes : <b>Bubblesort, Insertionsort, Selectionsort, Mergesort, Quicksort, Ra
 and Bogosort.</b>
 Upon starting the program, it will ask you:
 
-    Generate dataset or enter your own(1/2):
+    Generate dataset or enter your own?(1/2):
 
 
 <b>If you enter "1":</b>
@@ -28,19 +28,19 @@ Upon starting the program, it will ask you:
   
   Chose one of the algorithms listed above with the following commands (upper/lower-case doesn't matter):
 
-    -Bubblesort -> bubble or 1
+    -Bubblesort -> bubble
   
-    -Selectionsort -> select or 2
+    -Selectionsort -> select
   
-    -Insertionsort -> insert or 3
+    -Insertionsort -> insert
   
-    -Mergesort -> merge or 4
+    -Mergesort -> merge
   
-    -Quicksort -> quick or 5
+    -Quicksort -> quick
 
-    -Radix LSD (Base 10) -> radix or 6 (only for positive integers atm)
+    -Radix LSD (Base 10) -> radix (only for positive integers atm)
     
-    -Bogosort -> bogo or 7
+    -Bogosort -> bogo
     
     -ninput -> enter new dataset or generate one
     
