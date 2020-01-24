@@ -1,7 +1,8 @@
 # Sorting-Algorithm-Collection
 
 This is a small collection of popular sorting algorithms. The current version
-includes : Bubble Sort, Insertion Sort, Selection Sort, Merge Sort and Bogo Sort.
+includes : Bubblesort, Insertionsort, Selectionsort, Mergesort, Quicksort, Radix LSD (Base 10)
+and Bogosort.
 Upon starting the program, it will ask you:
 
 <b> "Enter a dataset:" </b>
