@@ -5,9 +5,18 @@ includes : Bubblesort, Insertionsort, Selectionsort, Mergesort, Quicksort, Radix
 and Bogosort.
 Upon starting the program, it will ask you:
 
-<b> "Enter a dataset:" </b>
+<b> "Generate dataset or enter your own(1/2):" </b>
 
-    Enter your dataset of integers (separate your integers with spaces)
+
+If you enter "1":
+
+    Enter length of dataset
+
+  F.ex: 1000 (dataset consists of 1000 integers)
+   
+    Enter boundaries('min int'-'max int') 
+
+  F.ex: 0-200 (puts integers from 0 to 200 into the dataset)
 
 <b>"What Algorithm?: </b>
   
