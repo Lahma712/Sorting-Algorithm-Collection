@@ -24,7 +24,7 @@ Upon starting the program, it will ask you:
 
     -bogo/bogosort
     
-    -radix
+    -radix (only for positive integers atm)
     
     -ninput -> enter new dataset or generate one
     
