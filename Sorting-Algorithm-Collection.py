@@ -1,4 +1,4 @@
-import time
+ import time
 import random
 
 def merge(List):
@@ -153,12 +153,13 @@ def radix(List):
 print("Commands:\n-Bubblesort -> bubble or 1\n-Selectionsort -> select or 2\n-Insertionsort -> insert or 3\n-Mergesort -> merge or 4\n-Quicksort -> quick or 5\n-Radix LSD (base 10) -> radix or 6\n-Bogosort -> bogo or 7\n\n-New dataset -> ninput")
 
 def Dataset():
-    Input = input("\nGenerate dataset or enter your own? (1/2)")
+    Input = input("\nGenerate dataset or enter your own?(1/2): ")
     if Input == "1":
         Input =input("Enter length of dataset: ")
+        sizeBound = [int(i) for i in input("Enter boundaries ('min int'-'max int'): ").split("-")]
         listinput = ""
         for i in range(int(Input)):
-            listinput += str(random.randint(0, 9999999999))
+            listinput += str(random.randint(sizeBound[0], sizeBound[1]))
             listinput += " "
         print("Generated dataset: " + listinput)
     else:
@@ -171,11 +172,11 @@ while True:
     Input = input("What Algorithm?: ").lower()
     if Input in ["bubble", "select", "insert", "merge", "quick", "radix", "bogo"]:
     	start = time.time()
-    	print(eval(Input + "(List)"))
+    	Sorted = eval(Input + "(List)")
     	end = time.time()
+    	print(Sorted)
     	print("\nElapsed time: " + str(end - start) + " seconds")
     if Input == "ninput":
         listinput = Dataset()
     else:
     	continue
-        
