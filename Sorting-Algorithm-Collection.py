@@ -171,10 +171,13 @@ def Radix(List):
     print("elapsed time: " + str(end - start) + " seconds")
     return list(map(int, List))
 
+
+print("Commands:\n-Bubblesort -> bubble/1\n-Selectionsort -> select/2\n-Insertionsort -> insert/3\n-Mergesort -> merge/4\n-Quicksort -> quick/5\n-Radix LSD (base 10) -> radix/6\n-Bogosort -> bogo/7\n\n-New dataset -> ninput")
+
 def Dataset():
-    Input = input("Generate dataset or enter your own? (1/2)")
+    Input = input("\nGenerate dataset or enter your own? (1/2)")
     if Input == "1":
-        Input =input("Enter your length of dataset: ")
+        Input =input("Enter length of dataset: ")
         listinput = ""
         for i in range(int(Input)):
             listinput += str(random.randint(0, 9999999999))
@@ -188,19 +191,19 @@ listinput = Dataset()
 while True:
     List = [int(i) for i in listinput.split()]
     Input = input("What Algorithm?: ").lower()
-    if Input in ["merge", "mergesort"]:
+    if Input in ["merge", "4"]:
         print(MergeSort(List))
-    if Input in ["select", "selectionsort"]:
+    if Input in ["select", "2"]:
         print(SelectionSort(List))
-    if Input in ["insert", "insertionsort"]:
+    if Input in ["insert", "3"]:
         print(InsertionSort(List))
-    if Input in ["bogo", "bogosort"]:
+    if Input in ["bogo", "7"]:
         print(BogoSort(List))
-    if Input in ["bubble", "bubblesort"]:
+    if Input in ["bubble", "1"]:
         print(BubbleSort(List))
-    if Input in ["quick", "quicksort"]:
+    if Input in ["quick", "5"]:
         print(QuickSort(List))
-    if Input in ["radix"]:
+    if Input in ["radix", "6"]:
         print(Radix(list(map(str, List))))
     if Input == "ninput":
         listinput = Dataset()
