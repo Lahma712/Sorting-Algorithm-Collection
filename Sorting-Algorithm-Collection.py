@@ -1,6 +1,7 @@
 import time
 import random
 
+
 def merge(List):
     print("\nMergeSort:")
     def Merge(L, R):  # L stands for left branch and R for right branch
@@ -27,6 +28,7 @@ def merge(List):
             return List
         else:
             middle = len(List) // 2
+           
             L = split(List[:middle])
             R = split(List[middle:])
 
@@ -105,24 +107,29 @@ def bubble(List):
 
 def quick(List):
     print("\nQuickSort: ")
-
+    
+    
     def quicksort(List):
         if len(List) == 1 or len(List) == 0:
             return List
         R = []
         L = []
-        pivot = List[len(List) - 1]  # taking the last item of the list as a pivot
-        plist = [pivot]
+        pivot = List[random.randint(0,len(List)-1)] # taking the last item of the list as a pivot
+        
         for i in range(len(List) - 1):
             if List[i] >= pivot:
                 R.append(List[i])
             else:
                 L.append(List[i])
-        SortedList = quicksort(L) + plist + quicksort(R)
+        
+        SortedList = quicksort(L)+ [pivot] + quicksort(R)
         return SortedList
-
+   
+    
     SortedList = quicksort(List)
     return SortedList
+    
+    
 
 def radix(List):
     print("\nRadix LSD (base 10): ")
@@ -162,8 +169,11 @@ def Dataset():
             listinput += str(random.randint(sizeBound[0], sizeBound[1]))
             listinput += " "
         print("Generated dataset: " + listinput)
-    else:
+    elif Input == "2":
         listinput = input("Enter your dataset: ")
+    else:
+    	print("invalid command")
+    	Dataset()
     return listinput
 
 listinput = Dataset()
@@ -171,11 +181,16 @@ while True:
     List = [int(i) for i in listinput.split()]
     Input = input("What Algorithm?: ").lower()
     if Input in ["bubble", "select", "insert", "merge", "quick", "radix", "bogo"]:
-    	start = time.time()
-    	Sorted = eval(Input + "(List)")
-    	end = time.time()
-    	print(Sorted)
-    	print("\nElapsed time: " + str(end - start) + " seconds")
+      try:
+          start = time.time()
+          Sorted = eval(Input + "(List)")
+          end = time.time()
+          print(Sorted)
+          print("\nElapsed time: " + str(end - start) + " seconds")
+      except(RecursionError):
+          print("\nMaximal recursion depth reached: Please decrease your dataset length or increase your boundaries. ")
+          listinput = Dataset()
+          
     if Input == "ninput":
         listinput = Dataset()
     else:
