@@ -1,7 +1,6 @@
 import time
 import random
 
-
 def merge(List):
     print("\nMergeSort:")
     def Merge(L, R):  # L stands for left branch and R for right branch
