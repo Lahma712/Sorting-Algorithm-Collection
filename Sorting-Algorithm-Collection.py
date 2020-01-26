@@ -114,7 +114,7 @@ def quick(List):
             return List
         R = []
         L = []
-        pivot = List[random.randint(0,len(List)-1)] # taking the last item of the list as a pivot
+        pivot = List[random.randint(0,len(List)-1)] # taking a random item of the list as a pivot
         
         for i in range(len(List) - 1):
             if List[i] >= pivot:
