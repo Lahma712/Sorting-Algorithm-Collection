@@ -126,7 +126,7 @@ def quick(List):
 	
     def quicksort(List, start, end):
         if start >= end:
-            return List
+            return 
         Prt = partition(List, start, end)
         LeftP = quicksort(List, start, Prt-1)
         RightP = quicksort(List, Prt+1, end)
