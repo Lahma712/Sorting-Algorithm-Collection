@@ -105,29 +105,33 @@ def bubble(List):
 
 
 def quick(List):
+    Liste = List
     print("\nQuickSort: ")
     
-    
-    def quicksort(List):
-        if len(List) == 1 or len(List) == 0:
-            return List
-        R = []
-        L = []
-        pivot = List[random.randint(0,len(List)-1)] #
-        List.remove(pivot)
-        
-        for i in range(len(List)):
-            if List[i] >= pivot:
-                R.append(List[i])
+    def partition(List, start, end):
+        pivot = start
+        lesser = start + 1
+        greater = end
+        while True:
+            while lesser<= greater and List[greater]>=List[pivot]:
+                greater -=1
+            while lesser <= greater and List[lesser]<=List[pivot]:
+                lesser +=1
+            if lesser <= greater:
+                List[lesser], List[greater] = List[greater], List[lesser]
             else:
-                L.append(List[i])
-        
-        SortedList = quicksort(L)+ [pivot] + quicksort(R)
-        return SortedList
-   
-    
-    SortedList = quicksort(List)
-    return SortedList
+                break 
+        List[pivot] , List[greater] = List[greater], List[pivot]
+        return greater
+	
+    def quicksort(List, start, end):
+        if start >= end:
+            return List
+        Prt = partition(List, start, end)
+        LeftP = quicksort(List, start, Prt-1)
+        RightP = quicksort(List, Prt+1, end)
+    quicksort(Liste, 0, len(Liste)-1)
+    return Liste
     
     
 
