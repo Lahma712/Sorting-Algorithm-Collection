@@ -8,20 +8,19 @@ def merge(List):
         l = 0
         r = 0
         while l < len(L) and r < len(R):
-        	if L[l] <= R[r]:
-        		Sorted.append(L[l])
-        		l += 1
-        	else:
-        		Sorted.append(R[r])
-        		r += 1
+            if L[l] <= R[r]:
+                Sorted.append(L[l])
+        	l += 1
+            else:
+        	Sorted.append(R[r])
+        	r += 1
         if l < len(L):
         	Sorted.extend(L[l:])
         if r < len(R):
         	Sorted.extend(R[r:])
         return Sorted
 
-    def split(
-            List):  # main function that splits the list into left and right branches and then calls the merge function on them
+    def split(List):  # main function that splits the list into left and right branches and then calls the merge function on them
 
         if len(List) == 1 or len(List) == 0:
             return List
