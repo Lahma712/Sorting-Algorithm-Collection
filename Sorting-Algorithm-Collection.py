@@ -1,4 +1,4 @@
-import time
+ import time
 import random
 
 def merge(List):
@@ -10,10 +10,10 @@ def merge(List):
         while l < len(L) and r < len(R):
             if L[l] <= R[r]:
                 Sorted.append(L[l])
-        	l += 1
+                l += 1
             else:
-        	Sorted.append(R[r])
-        	r += 1
+        	    Sorted.append(R[r])
+        	    r += 1
         if l < len(L):
             Sorted.extend(L[l:])
         if r < len(R):
@@ -162,26 +162,39 @@ def radix(List):
 
 print("Commands:\n-Bubblesort -> bubble\n-Selectionsort -> select\n-Insertionsort -> insert\n-Mergesort -> merge\n-Quicksort -> quick\n-Radix LSD (base 10) -> radix\n-Bogosort -> bogo\n\n-New dataset -> ninput")
 
+
 def Dataset():
     Input = input("\nGenerate dataset or enter your own?(1/2): ")
     if Input == "1":
         Input =input("Enter length of dataset: ")
-        sizeBound = [int(i) for i in input("Enter boundaries ('min int'-'max int'): ").split("-")]
-        listinput = ""
-        for i in range(int(Input)):
-            listinput += str(random.randint(sizeBound[0], sizeBound[1]))
-            listinput += " "
-        print("Generated dataset: " + listinput)
+        try:
+            sizeBound = [int(i) for i in input("Enter boundaries ('min int'-'max int'): ").split("-")]
+            listinput = ""
+            for i in range(int(Input)):
+                listinput += str(random.randint(sizeBound[0], sizeBound[1]))
+                listinput += " "
+            print("Generated dataset: " + listinput)
+            return listinput
+        except(ValueError):
+        	print("\nInvalid dataset, please try again")
+        	return Dataset()
     elif Input == "2":
         listinput = input("Enter your dataset: ")
+        return listinput
     else:
-    	print("invalid command")
-    	Dataset()
-    return listinput
+    	print("\nInvalid command,please try again")
+    	return Dataset()
+    
 
 listinput = Dataset()
 while True:
-    List = [int(i) for i in listinput.split()]
+    try:
+        List = [int(i) for i in listinput.split()]
+    except(ValueError):
+    	print("\nInvalid dataset, please try again")
+    	listinput = Dataset()
+    	continue
+    	
     Input = input("What Algorithm?: ").lower()
     if Input in ["bubble", "select", "insert", "merge", "quick", "radix", "bogo"]:
       try:
