@@ -15,9 +15,9 @@ def merge(List):
         	Sorted.append(R[r])
         	r += 1
         if l < len(L):
-        	Sorted.extend(L[l:])
+            Sorted.extend(L[l:])
         if r < len(R):
-        	Sorted.extend(R[r:])
+            Sorted.extend(R[r:])
         return Sorted
 
     def split(List):  # main function that splits the list into left and right branches and then calls the merge function on them
