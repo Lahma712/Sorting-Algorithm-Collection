@@ -5,19 +5,19 @@ def merge(List):
     print("\nMergeSort:")
     def Merge(L, R):  # L stands for left branch and R for right branch
         Sorted = []
-        while True:
-            if len(L) == 0:
-                Sorted += R
-                break
-            if len(R) == 0:
-                Sorted += L
-                break
-            elif L[0] <= R[0]:
-                Sorted.append(L[0])
-                L.remove(L[0])
-            else:
-                Sorted.append(R[0])
-                R.remove(R[0])
+        l = 0
+        r = 0
+        while l < len(L) and r < len(R):
+        	if L[l] <= R[r]:
+        		Sorted.append(L[l])
+        		l += 1
+        	else:
+        		Sorted.append(R[r])
+        		r += 1
+        if l < len(L):
+        	Sorted.extend(L[l:])
+        if r < len(R):
+        	Sorted.extend(R[r:])
         return Sorted
 
     def split(
@@ -126,7 +126,7 @@ def quick(List):
 	
     def quicksort(List, start, end):
         if start >= end:
-            return 
+            return List
         Prt = partition(List, start, end)
         LeftP = quicksort(List, start, Prt-1)
         RightP = quicksort(List, Prt+1, end)
