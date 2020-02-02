@@ -1,23 +1,19 @@
 import time
 import random
-
 def merge(List):
     print("\nMergeSort:")
-    def Merge(L, R):  # L stands for left branch and R for right branch
-        Sorted = []
-        l = 0
-        r = 0
+    def Merge(L, R, l, r, Sorted):  # L stands for left branch and R for right branch
         while l < len(L) and r < len(R):
             if L[l] <= R[r]:
-                Sorted.append(L[l])
+                Sorted += [L[l]]
                 l += 1
             else:
-        	    Sorted.append(R[r])
+        	    Sorted += [R[r]]
         	    r += 1
         if l < len(L):
-            Sorted.extend(L[l:])
-        if r < len(R):
-            Sorted.extend(R[r:])
+            Sorted += L[l:]
+        else:
+            Sorted += R[r:]
         return Sorted
 
     def split(List):  # main function that splits the list into left and right branches and then calls the merge function on them
@@ -25,12 +21,9 @@ def merge(List):
         if len(List) == 1 or len(List) == 0:
             return List
         else:
-            middle = len(List) // 2
-           
-            L = split(List[:middle])
-            R = split(List[middle:])
+            middle= len(List)//2
 
-            return Merge(L, R)
+            return Merge(split(List[:middle]),  split(List[middle:]), 0, 0, [])
 
     SortedList = split(List)
     return SortedList
@@ -127,8 +120,8 @@ def quick(List):
         if start >= end:
             return List
         Prt = partition(List, start, end)
-        LeftP = quicksort(List, start, Prt-1)
-        RightP = quicksort(List, Prt+1, end)
+        quicksort(List, start, Prt-1)
+        quicksort(List, Prt+1, end)
     quicksort(Liste, 0, len(Liste)-1)
     return Liste
     
@@ -210,4 +203,4 @@ while True:
     if Input == "ninput":
         listinput = Dataset()
     else:
-    	continue
+    	continue 
