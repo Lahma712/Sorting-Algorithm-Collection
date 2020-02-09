@@ -17,8 +17,7 @@ def merge(List):
             Sorted += R[r:]
         return Sorted
 
-    def split(
-            List):  # main function that splits the list into left and right branches and then calls the merge function on them
+    def split(List):  # main function that splits the list into left and right branches and then calls the merge function on them
 
         if len(List) == 1 or len(List) == 0:
             return List
@@ -162,8 +161,7 @@ def radix(List):
     return list(map(int, List))
 
 
-print(
-    "Commands:\n-Bubblesort -> bubble\n-Selectionsort -> select\n-Insertionsort -> insert\n-Mergesort -> merge\n-Quicksort -> quick\n-Radix LSD (base 10) -> radix\n-Bogosort -> bogo\n\n-New dataset -> ninput")
+print("Commands:\n-Bubblesort -> bubble\n-Selectionsort -> select\n-Insertionsort -> insert\n-Mergesort -> merge\n-Quicksort -> quick\n-Radix LSD (base 10) -> radix\n-Bogosort -> bogo\n\n-New dataset -> ninput")
 
 
 def Dataset():
