@@ -146,7 +146,7 @@ def radix(List):
     return list(map(int, List))
 
 
-print("Commands:\n-Bubblesort -> bubble\n-Selectionsort -> select\n-Insertionsort -> insert\n-Mergesort -> merge\n-Quicksort -> quick\n-Radix LSD (base 10) -> radix\n-Bogosort -> bogo\n\n-New dataset -> ninput\n-Show initial dataset -> dataset\n-Show sorted dataset -> result\n-Show elapsed time-> time")
+print("Commands:\n-Bubblesort -> bubble\n-Selectionsort -> select\n-Insertionsort -> insert\n-Mergesort -> merge\n-Quicksort -> quick\n-Radix LSD (base 10) -> radix\n-Bogosort -> bogo\n\n-New dataset -> new\n-Show initial dataset -> dataset\n-Show sorted dataset -> result\n-Show elapsed time-> time")
 
 
 def Dataset():
@@ -180,7 +180,7 @@ while True:
         listinput = Dataset()
         continue
 
-    Input = input("What Algorithm?: ").lower()
+    Input = input("Command: ").lower()
     if Input in ["bubble", "select", "insert", "merge", "quick", "radix", "bogo"]:
         try:
             start = time.time()
@@ -192,12 +192,18 @@ while True:
             print("\nMaximal recursion depth reached: Please decrease your dataset length or increase your boundaries.")
             listinput = Dataset()
 
-    elif Input == "ninput":
+    elif Input == "new":
         listinput = Dataset()
     elif Input == "time":
-        print("Time: " + str(end-start))
+        try:
+            print("Time: " + str(end-start))
+        except:
+            print("First sort your dataset using one of the sorting algorithm commands (f.ex quick, bubble, merge etc)")
     elif Input == "result":
-        print(Sorted)
+        try:
+            print(Sorted)
+        except:
+            print("First sort your dataset using one of the sorting algorithm commands (f.ex quick, bubble, merge etc)")
     elif Input == "dataset":
         print(List)
     
