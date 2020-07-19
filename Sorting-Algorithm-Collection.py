@@ -1,8 +1,6 @@
 import time
 import random
 def merge(List):
-    print("\nMergeSort:")
-
     def Merge(L, R, l, r, Sorted):  # L stands for left branch and R for right branch
         while l < len(L) and r < len(R):
             if L[l] <= R[r]:
@@ -31,7 +29,6 @@ def merge(List):
 
 
 def select(List):
-    print("\nSelectionSort: ")
     for counter in range(len(List)):  # for loop creating smaller sublists
         Min = List[counter]  # minimum value
         for x in range(counter, len(List)):  # x is the position of the current value
@@ -43,8 +40,6 @@ def select(List):
 
 
 def insert(List):
-    print("\nInsertionSort:")
-
     def switch(x):  # x is the position of the current value
         List[x], List[x + 1] = List[x + 1], List[x]  # swaps two values (value followed by smaller value)
         if List[x] < List[
@@ -63,30 +58,23 @@ def insert(List):
 
 
 def bogo(List):
-    print("\nBogoSort:")
-
     def check(List):
         for x in range(len(List) - 1):
             if List[x] > List[x + 1]:
                 return False
         return True
-
     def Bogo(List):
         while not check(List):
             List = random.sample(List, len(List))
         return List
-
     SortedList = Bogo(List)
     return SortedList
 
 
 def bubble(List):
-    print("\nBubbleSort: ")
-
     def switch(x):
         List[x], List[x + 1] = List[x + 1], List[x]  # swaps two values (value followed by smaller value)
         y = 0
-
     while True:
         c = 0
         for y in range(len(List) - 1):
@@ -99,8 +87,6 @@ def bubble(List):
 
 def quick(List):
     Liste = List
-    print("\nQuickSort: ")
-
     def median(List, start, end, mid):
         if List[start] <= List[mid] <= List[end] or (List[end] <= List[mid] <= List[start]):
             return mid
@@ -136,7 +122,6 @@ def quick(List):
 
 
 def radix(List):
-    print("\nRadix LSD (base 10): ")
     List = list(map(str, List))
     buckets = {}
     for x in range(10):
@@ -161,7 +146,7 @@ def radix(List):
     return list(map(int, List))
 
 
-print("Commands:\n-Bubblesort -> bubble\n-Selectionsort -> select\n-Insertionsort -> insert\n-Mergesort -> merge\n-Quicksort -> quick\n-Radix LSD (base 10) -> radix\n-Bogosort -> bogo\n\n-New dataset -> ninput")
+print("Commands:\n-Bubblesort -> bubble\n-Selectionsort -> select\n-Insertionsort -> insert\n-Mergesort -> merge\n-Quicksort -> quick\n-Radix LSD (base 10) -> radix\n-Bogosort -> bogo\n\n-New dataset -> ninput\n-Show initial dataset -> dataset\n-Show sorted dataset -> result\n-Show elapsed time-> time")
 
 
 def Dataset():
@@ -174,7 +159,6 @@ def Dataset():
             for i in range(int(Input)):
                 listinput += str(random.randint(sizeBound[0], sizeBound[1]))
                 listinput += " "
-            print("Generated dataset: " + listinput)
             return listinput
         except(ValueError):
             print("\nInvalid dataset, please try again")
@@ -202,14 +186,18 @@ while True:
             start = time.time()
             Sorted = eval(Input + "(List)")
             end = time.time()
-            print(Sorted)
-            print("\nElapsed time: " + str(end - start) + " seconds")
+            print("Sorted!")
+          
         except(RecursionError):
-            print(
-                "\nMaximal recursion depth reached: Please decrease your dataset length or increase your boundaries. ")
+            print("\nMaximal recursion depth reached: Please decrease your dataset length or increase your boundaries.")
             listinput = Dataset()
 
-    if Input == "ninput":
+    elif Input == "ninput":
         listinput = Dataset()
-    else:
-        continue
+    elif Input == "time":
+        print("Time: " + str(end-start))
+    elif Input == "result":
+        print(Sorted)
+    elif Input == "dataset":
+        print(List)
+    
