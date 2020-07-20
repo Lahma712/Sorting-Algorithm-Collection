@@ -1,5 +1,6 @@
 import time
 import random
+import threading
 def merge(List):
     def Merge(L, R, l, r, Sorted):  # L stands for left branch and R for right branch
         while l < len(L) and r < len(R):
@@ -145,8 +146,29 @@ def radix(List):
             buckets[y] = []
     return list(map(int, List))
 
+def sleep(List):
+    global sorted
+    sorted = []
+    global threads
+    threads = []
+    def Sleep(Value):
+        time.sleep(Value/1000)
+        sorted.append(Value)
+        return 
+    for value in List:
+        t = threading.Thread(target= Sleep, args = [value])
+        threads.append(t)
 
-print("Commands:\n-Bubblesort -> bubble\n-Selectionsort -> select\n-Insertionsort -> insert\n-Mergesort -> merge\n-Quicksort -> quick\n-Radix LSD (base 10) -> radix\n-Bogosort -> bogo\n\n-New dataset -> new\n-Show initial dataset -> dataset\n-Show sorted dataset -> result\n-Show elapsed time-> time")
+    for Thread in threads:
+        try:
+            Thread.start()
+        except:
+            continue
+    
+    return sorted
+
+
+print("Commands:\n-Bubblesort -> bubble\n-Selectionsort -> select\n-Insertionsort -> insert\n-Mergesort -> merge\n-Quicksort -> quick\n-Radix LSD (base 10) -> radix\n-Bogosort -> bogo\n-Sleepsort -> sleep\n\n-New dataset -> new\n-Show initial dataset -> dataset\n-Show sorted dataset -> result\n-Show elapsed time-> time")
 
 
 def Dataset():
@@ -164,7 +186,7 @@ def Dataset():
             print("\nInvalid dataset, please try again")
             return Dataset()
     elif Input == "2":
-        listinput = input("Enter your dataset: ")
+        listinput = input("Enter dataset: ")
         return listinput
     else:
         print("\nInvalid command,please try again")
@@ -179,9 +201,9 @@ while True:
         print("\nInvalid dataset, please try again")
         listinput = Dataset()
         continue
-
+    
     Input = input("Command: ").lower()
-    if Input in ["bubble", "select", "insert", "merge", "quick", "radix", "bogo"]:
+    if Input in ["bubble", "select", "insert", "merge", "quick", "radix", "bogo", "sleep"]:
         try:
             start = time.time()
             Sorted = eval(Input + "(List)")
