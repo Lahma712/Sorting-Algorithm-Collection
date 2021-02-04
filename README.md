@@ -34,7 +34,7 @@ includes :
     -New dataset -> new
     -Show initial dataset -> dataset
     -Show sorted dataset -> result
-    -Show elapsed time-> time
+    -Show elapsed time -> time
   
 
 
