@@ -168,7 +168,7 @@ def sleep(List):
     return sorted
 
 
-print("Commands:\n-Bubblesort -> bubble\n-Selectionsort -> select\n-Insertionsort -> insert\n-Mergesort -> merge\n-Quicksort -> quick\n-Radix LSD (base 10) -> radix\n-Bogosort -> bogo\n-Sleepsort -> sleep\n\n-New dataset -> new\n-Show initial dataset -> dataset\n-Show sorted dataset -> result\n-Show elapsed time-> time")
+print("Commands:\n-Bubblesort -> bubble\n-Selectionsort -> select\n-Insertionsort -> insert\n-Mergesort -> merge\n-Quicksort -> quick\n-Radix LSD (base 10) -> radix\n-Bogosort -> bogo\n-Sleepsort -> sleep\n\n-New dataset -> new\n-Show initial dataset -> dataset\n-Show sorted dataset -> result\n-Show elapsed time -> time")
 
 
 def Dataset():
