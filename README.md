@@ -22,7 +22,6 @@ includes :
   
  <b>Commands:</b>
  
-     Commands:
     -Bubblesort -> bubble
     -Selectionsort -> select
     -Insertionsort -> insert
